@@ -1,0 +1,22 @@
+#include <TheThingsNetwork.h>
+#include <SoftwareSerial.h>
+
+SoftwareSerial gps(4, 3);  //Es declara que Rx de la placa está al pin 4 i que Tx está al pin 3 Digital
+
+
+void setup() {
+   Serial.begin(115200);
+    gps.begin(9600);
+
+}
+
+void loop() {
+
+  if (gps.available())
+  {
+    char datos;
+    datos = gps.read();
+    Serial.print(datos);
+  }
+
+}
